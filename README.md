@@ -1,2 +1,10 @@
-# Cisco
-cisco cisco cisco html
+# Instaldor automatizado do Packet Tracer para Ubuntu
+
+Pra instalar o Packet Tracer para ubuntu 20+ rode esse comando:
+
+```bash
+wget -qO- https://raw.githubusercontent.com/Luidooo/Cisco/refs/heads/main/install.sh | bash
+```
+
+```
+```
