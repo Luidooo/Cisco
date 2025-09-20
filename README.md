@@ -8,3 +8,6 @@ wget -qO- https://raw.githubusercontent.com/Luidooo/Cisco/refs/heads/main/instal
 
 ```
 ```
+
+Segui essa documentacao: [Downloading Packet Tracer](https://simplificandoredes.com/en/install-packet-tracer-on-linux/)
+
