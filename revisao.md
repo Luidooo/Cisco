@@ -1,43 +1,38 @@
-# Revisão Resolvida - FRC UnB
+# Revisão Resolvida - FRC UnB (Versão Completa)
 
 ## **Parte 1: Exercícios de Revisão**
 
 ### **Questão 1**
-
 > Em um roteador Cisco, para habilitarmos uma porta para a nossa rede interna, devemos realizar os seguintes comandos no sistema operacional da cisco. Primeiro acessamos a CLI do roteador, acessamos os modos privilegiado (enable) e modo de configuração (Configure terminal) e em seguida acessar a interface(ex: interface gig0/0/0) e digitar os seguintes comandos:
 
 **Alternativas:**
-a. Ip address 192.168.1.1/No Shut
-b. Ip source 192.168.1.1 / No Shut
-c. Ip add 192.168.1.1 / Shut
-d. Ip 192.168.1.1/Shut
-e. Ip 168.192.1.256 / No Shut
+- a. Ip address 192.168.1.1/No Shut
+- b. Ip source 192.168.1.1 / No Shut
+- c. Ip add 192.168.1.1 / Shut
+- d. Ip 192.168.1.1/Shut
+- e. Ip 168.192.1.256 / No Shut
 
 **Resposta Correta:** a. Ip address 192.168.1.1/No Shut
 
-**Explicação:** Para configurar e ativar uma interface em um roteador Cisco, são necessários dois comandos principais: `ip address` para atribuir o endereço e `no shutdown` para ativar a interface. A alternativa **a** representa a combinação desses dois comandos essenciais. As outras alternativas estão incorretas por usarem sintaxe de comando inválida (`Ip source`, `Ip add`, `Ip`), por desativarem a interface (`Shut`), ou por usarem um endereço IP inválido (`168.192.1.256`).
+**Explicação:** Para configurar uma interface, o comando correto é `ip address <ip> <máscara>`, seguido do comando `no shutdown` para ativá-la. A alternativa "a" é a que representa essa combinação de ações.
 
 ---
-
 ### **Questão 2**
-
 > Marque a alternativa que apresenta a sequência correta para criar uma vlan de nome FaculdadesS e atribuir a ela as portas de 1 a 10 no Swich, considerando que já acessamos o Console do equipamento através dos comandos 'enable' e "configure terminal".
 
 **Alternativas:**
-A- switchport access vlan 10, vlan 10, name FaculdadesS, interface range fa0/1-02,
-B- vlan 10, name FaculdadesS, interface range fa0/1-10, switchport access vlan 10
-C- name FaculdadesS, vlan 10, interface range fa0/1-10, switchport access vlan 10
-D- interface range fa0/1-10, switchport access vlan 10, vlan 10, name FaculdadesS
-E- switchport access vlan 10, interface range fa0/1-10, vlan 10, name FaculdadesS
+- A- switchport access vlan 10, vlan 10, name FaculdadesS, interface range fa0/1-02,
+- B- vlan 10, name FaculdadesS, interface range fa0/1-10, switchport access vlan 10
+- C- name FaculdadesS, vlan 10, interface range fa0/1-10, switchport access vlan 10
+- D- interface range fa0/1-10, switchport access vlan 10, vlan 10, name FaculdadesS
+- E- switchport access vlan 10, interface range fa0/1-10, vlan 10, name FaculdadesS
 
 **Resposta Correta:** B- vlan 10, name FaculdadesS, interface range fa0/1-10, switchport access vlan 10
 
-**Explicação:** A sequência lógica e correta dos comandos é: primeiro criar a VLAN (`vlan 10`), depois nomeá-la (`name FaculdadesS`), em seguida selecionar o intervalo de interfaces (`interface range fa0/1-10`), e por fim, atribuir essas interfaces à VLAN (`switchport access vlan 10`).
+**Explicação:** A sequência correta é: criar a vlan (`vlan 10`), nomeá-la (`name FaculdadesS`), selecionar as interfaces (`interface range fa0/1-10`) e, por fim, associá-las à vlan (`switchport access vlan 10`).
 
 ---
-
 ### **Questão 3**
-
 > Leia as sentenças abaixo e marque o item que apresenta todas as sentenças de forma correta:
 > I. O ip 192.168.50.1 corresponde a um ip de classe C.
 > II. O comando para desligar uma interface no switch é shutdown.
@@ -46,110 +41,255 @@ E- switchport access vlan 10, interface range fa0/1-10, vlan 10, name Faculdades
 > V. Utilizamos o comando Banner Motd para atribuir um nome a um Switch.
 
 **Alternativas:**
-a) le IV
-b) leV
-c) II, III e IV
-d) I, II, IV
-e) lell
+- a) le IV
+- b) leV
+- c) II, III e IV
+- d) I, II, IV
+- e) lell
 
 **Resposta Correta:** d) I, II, IV
 
-**Explicação:**
-* **I. CORRETA.** Endereços IP que começam com 192 pertencem à Classe C.
-* **II. CORRETA.** O comando `shutdown` desativa administrativamente uma interface.
-* **IV. CORRETA.** `255.255.0.0` é a máscara de sub-rede padrão para endereços de Classe B.
-* **V. INCORRETA.** O comando `banner motd` cria uma mensagem de aviso; o comando para atribuir um nome é `hostname`.
+**Explicação:** As afirmativas I, II e IV estão corretas. A afirmativa V está incorreta, pois o comando para atribuir nome é `hostname`.
 
-## **Parte 2: Avaliação 01**
+---
+### **Questão 4**
+> Responda de forma objetiva o que cada comando executado no Switch/ Router realiza:
 
-### **QUESTÃO 1**
+- **`Configure Terminal`**: Entra no modo de configuração global, onde é possível alterar as configurações do dispositivo.
+- **`Hostname FacUnb`**: Altera o nome do dispositivo para "FacUnb".
+- **`Copy running-config startup-config` ou `wr`**: Salva a configuração atual (em execução na RAM) para a configuração de inicialização (na NVRAM), para que não se perca ao reiniciar.
+- **`Ip add 192.168.1.1 255.255.255.0`**: (Com a sintaxe correta `ip address ...`) Atribui o endereço IP e a máscara de sub-rede a uma interface.
+- **`Banner motd #PROIBIDO ACESSO NÃO AUTORIZADO#`**: Define uma mensagem de aviso que aparece para quem tentar acessar o dispositivo.
 
-> Leia as sentenças abaixo e marque o item que apresenta todas as sentenças de forma correta:
-> I. O ip 172.168.50.1 corresponde a um ip de classe C.
-> II. O comando para desligar uma interface no switch é "no shutdown".
-> III. O comando 'ping' permite testar a conectividade de um PC para outro PC.
-> IV. 255.255.0.0 corresponde a uma máscara de subrede do tipo B.
-> V. Utilizamos o comando "shutdown" para reiniciar o Router.
+---
+### **Questão 5**
+> Informe os comandos necessários no Packet tracer para realizar as seguintes configurações.
 
-**Alternativas:**
+- **i. Criar uma vlan chamada Engenharia considerando estar no modo de configuração global e vincular ela as interfaces de g0/1-5.**
+  **Resposta:**
+  ```bash
+  vlan 2
+  name Engenharia
+  exit
+  interface range g0/1-5
+  switchport mode access
+  switchport access vlan 2
+  ii. Colocar senha no console, utilizar o comando para inicializar pedindo a senha e reiniciar o Switch.
+Resposta:
+
+Bash
+
+line console 0
+password unb
+login
+exit
+reload
+iii. O ip 192.168.5.0 é:
+Resposta: b. Rede
+
+Questão 6
+Analise as alternativas abaixo e identifique o conceito correspondente.
+
+() conectam diferentes redes entre si.
+
+() protocolo de comunicação em uma rede de computadores
+
+() conectam vários dispositivos a uma mesma rede.
+
+() protegem as redes contra acessos não autorizados.
+
+() Nome dado a um equipamento ligado a rede
+
+Resposta Correta: A sequência da associação é: B, E, A, D, C (Roteador, TCP/IP, Switch, Firewall, Host).
+
+Questão 7
+Para que uma rede funcione de forma básica, precisamos ao menos de dois parâmetros configurados:
+
+Alternativas:
+
+a. Switch e Router
+
+b. Ip e Endereço Mac
+
+c. Ip e Máscara de sub-rede
+
+d. Router e servidor
+
+e. Servidor e switch
+
+Resposta Correta: c. Ip e Máscara de sub-rede
+
+Explicação: Um dispositivo precisa de um endereço IP para ser identificado e uma Máscara de Sub-rede para saber a qual rede pertence.
+
+Questão 8
+Qual dos protocolos abaixo não corresponde a um protocolo da camada de apresentação segundo o modelo OSI.
+
+Alternativas:
+
+a. DNS
+
+b. FTP
+
+c. HTTP
+
+d. UDP
+
+e. HTTPS
+
+Resposta Correta: d. UDP
+
+Explicação: UDP é um protocolo da Camada de Transporte (Camada 4). Os outros são da Camada de Aplicação.
+
+Questão 9
+Quais as vantagens ao se criar uma Vlan?
+
+Resposta: Melhor gerenciamento, maior segurança, melhor desempenho da rede e melhor aproveitamento da estrutura física.
+
+Questão 10
+Qual é o papel do Servidor DNS?
+
+Resposta: Realizar a resolução de nomes, ou seja, traduzir nomes de domínio (ex: https://www.google.com/search?q=www.google.com) em endereços IP (ex: 142.250.218.100).
+
+Parte 2: Avaliação 01
+QUESTÃO 1
+Leia as sentenças abaixo e marque o item que apresenta todas as sentenças de forma correta:
+I. O ip 172.168.50.1 corresponde a um ip de classe C.
+II. O comando para desligar uma interface no switch é "no shutdown".
+III. O comando 'ping' permite testar a conectividade de um PC para outro PC.
+IV. 255.255.0.0 corresponde a uma máscara de subrede do tipo B.
+V. Utilizamos o comando "shutdown" para reiniciar o Router.
+
+Alternativas:
+
 a) le IV
+
 b) lev
+
 c) III e IV
+
 d) I, II, IV
+
 e) II, III, V
 
-**Resposta Correta:** c) III e IV
+Resposta Correta: c) III e IV
 
-**Explicação:**
-* **I. INCORRETA.** O IP `172.168.50.1` pertence à Classe B (faixa de 128 a 191 no primeiro octeto).
-* **II. INCORRETA.** O comando para desligar (desativar) uma interface é `shutdown`. O comando `no shutdown` serve para ligar (ativar) a interface.
-* **III. CORRETA.** O comando `ping` é a ferramenta padrão para testar a conectividade de rede entre dois dispositivos.
-* **IV. CORRETA.** A máscara `255.255.0.0` é a máscara padrão para redes de Classe B.
-* **V. INCORRETA.** O comando para reiniciar um roteador Cisco é `reload`.
+Explicação: As afirmativas III e IV estão corretas. A I está errada (é classe B), a II está errada (shutdown desliga, no shutdown liga) e a V está errada (reload reinicia).
 
----
+QUESTÃO 2
+Analise as alternativas e marque V para as alternativas verdadeiras e F para as falsas:
+1-() o número ip "192.168.1.0" é um endereço de um gateway.
+2-() o comando "ipconfig" no prompt permite visualizar as informações de rede, como o ip, gateway...
+3-() 0 comando 'sh ip int brief' permite visualizar informações das interfaces
+4-() 0 servidor DNS faz traduções de nome para ip e vice-versa.
 
-### **QUESTÃO 2**
+Alternativas:
 
-> Analise as alternativas e marque V para as alternativas verdadeiras e F para as falsas:
-> 1-() o número ip "192.168.1.0" é um endereço de um gateway.
-> 2-() o comando "ipconfig" no prompt permite visualizar as informações de rede, como o ip, gateway...
-> 3-() 0 comando 'sh ip int brief' permite visualizar informações das interfaces
-> 4-() 0 servidor DNS faz traduções de nome para ip e vice-versa.
-
-**Alternativas:**
 a- FEVV
+
 b- FVVV
+
 c- FVVF
+
 d- VVFV
+
 e- ۷۷۷۷
 
-**Resposta Correta:** b- FVVV
+Resposta Correta: b- FVVV
 
-**Explicação:**
-1.  **FALSO.** O endereço `192.168.1.0` (com máscara padrão /24) é o endereço da rede, não pode ser atribuído a um dispositivo como gateway.
-2.  **VERDADEIRO.** No Windows, o comando `ipconfig` é usado para exibir a configuração de rede do computador.
-3.  **VERDADEIRO.** Em dispositivos Cisco, o comando `show ip interface brief` exibe um resumo do status e do endereço IP de todas as interfaces.
-4.  **VERDADEIRO.** O DNS (Domain Name System) resolve nomes de domínio para endereços IP (consulta direta) e endereços IP para nomes (consulta reversa).
+Explicação: A primeira afirmativa é falsa, pois 192.168.1.0 é um endereço de rede. Todas as outras são verdadeiras.
 
----
+QUESTÃO 3
+Analise cada alternativa e marque e indique a palavra, comando ou termo para completar a frase.
 
-### **QUESTÃO 3**
+Resposta Correta: d- Rede, 'enable secret unb', 'sh run', 'int g0/0/0.10'
 
-> Analise cada alternativa e marque e indique a palavra, comando ou termo para completar a frase.
-> a- O ip 192.168.10.0 é um endereço de \_\_\_\_\_\_\_\_\_\_\_\_
-> b- O comando \_\_\_\_\_\_\_\_\_\_\_\_ permite colocar uma senha criptografada no acesso ao modo privilegiado
-> c- Comando para listar diversas informações da rede, inclusive mostrar as senhas.
-> d- este comando \_\_\_\_\_\_\_\_\_\_\_\_ cria uma sub-interface no roteador.
+Explicação: 192.168.10.0 é um endereço de Rede; enable secret cria uma senha criptografada; sh run mostra a configuração (incluindo senhas); int g0/0/0.10 cria uma sub-interface.
 
-**Alternativas:**
-a- Host, 'enable secret unb', 'sh run', 'int g0/0/0.1'
-b- Host, 'enable password unb', 'sh run', 'int g0/0/0.10'
-c- Sub-rede, 'enable password unb', 'sh ip int brief, 'int g0/0/0'
-d- Rede, 'enable secret unb', 'sh run', 'int g0/0/0.10'
-e- Rede, 'enable secret unb', 'sh ip int brief', 'int g0/0/0.1'
+QUESTÃO 4
+Analise os seguintes conceitos:
+1- São uma parte essencial da segmentação de redes, permitindo a separação lógica de dispositivos em uma rede física.
+2- É a porta do roteador responsável por interligar a rede.
+3- Tipo de servidor que permite realizar a tradução de nome para ip e vice-versa.
 
-**Resposta Correta:** d- Rede, 'enable secret unb', 'sh run', 'int g0/0/0.10'
+Alternativas:
 
-**Explicação:**
-* a- `192.168.10.0` é um endereço de **Rede**.
-* b- O comando **`enable secret`** cria uma senha criptografada.
-* c- O comando **`sh run`** (show running-config) exibe a configuração atual, incluindo senhas.
-* d- O comando **`int g0/0/0.10`** cria uma sub-interface.
+A- Vlan, gateway, cliente/servidor
 
----
+B- Gateway, DHCP, Vlan
 
-### **QUESTÃO 5**
+C- Vlan, DNS, Gateway
 
-> São camadas do modelo OSI, exceto:
+D- Gateway, Vlan, DHCP
 
-**Alternativas:**
+E- Vlan, Gateway, DNS
+
+Resposta Correta: E- Vlan, Gateway, DNS
+
+Explicação: Os conceitos descritos são, respectivamente, VLAN, Gateway e DNS.
+
+QUESTÃO 5
+São camadas do modelo OSI, exceto:
+
+Alternativas:
+
 a- Transporte
+
 b- Enlace de Dados
+
 c- Física
+
 d- Sessão
+
 e- Internet
 
-**Resposta Correta:** e- Internet
+Resposta Correta: e- Internet
 
-**Explicação:** As camadas do Modelo OSI são: Física, Enlace, Rede, Transporte, Sessão, Apresentação e Aplicação. A camada **Internet** pertence ao modelo TCP/IP.
+Explicação: A camada "Internet" pertence ao modelo TCP/IP, não ao modelo OSI.
+
+QUESTÃO 6
+Analise as informações abaixo e marque a alternativa correta
+
+Resposta Correta: a) Todas as afirmativas estão corretas (com ressalvas na afirmativa 2, que é uma simplificação).
+
+Explicação: As afirmativas 1, 3, 4 e 5 estão corretas. A afirmativa 2 é uma simplificação, pois as camadas superiores dos modelos TCP/IP e OSI não são idênticas.
+
+QUESTÃO 7
+Responda de forma objetiva o que cada comando executado no Switch/ Router realiza:
+
+'Show ip interface brief": Exibe um resumo do status das interfaces de rede, incluindo seus IPs e se estão ativas.
+
+'No ip domain lookup": Desativa a busca por DNS no CLI, evitando demoras quando um comando é digitado errado.
+
+"Do" (ex: "do Copy running-config startup-config").: Permite executar um comando de modo privilegiado (como show ou copy) sem sair do modo de configuração.
+
+'No Ip add 192.168.1.1 255.255.255.0': (Com a sintaxe correta no ip address...) Remove o endereço IP de uma interface.
+
+QUESTÃO 8
+Informe os comandos necessários no Packet tracer para realizar as seguintes configurações.
+
+1- Cite ao menos 03 protocolos da camada de apresentação.
+Resposta: SSL, TLS, JPEG, GIF, MPEG (protocolos de criptografia e formatos de dados).
+
+2- Colocar senha no console, utilizar o comando para inicializar pedindo a senha e reiniciar o Switch.
+Resposta:
+
+Bash
+
+line console 0
+password <senha>
+login
+exit
+reload
+3- Crie uma Vlan chamada Redes com número 03 e atribua a ela as interfaces de 1 a 5 no Switch considerando estar no modo de configuração global.
+Resposta:
+
+Bash
+
+vlan 3
+name Redes
+exit
+interface range fastEthernet 0/1-5
+switchport mode access
+switchport access vlan 3
+4- Explique a diferença ou para que serve, o Router e Switch:
+Resposta: Um Switch opera na Camada 2 para conectar dispositivos na mesma rede usando endereços MAC. Um Roteador opera na Camada 3 para conectar redes diferentes usando endereços IP e determinar o melhor caminho para os dados.
